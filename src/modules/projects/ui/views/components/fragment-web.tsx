@@ -44,8 +44,7 @@ export function FragmentWeb({ data }: Props) {
             <RefreshCcwIcon />
           </Button>
         </Hint>
-
-        <Hint text="Copy URL" side="bottom">
+        <Hint text="Copy to clipboard" side="bottom">
           <Button
             size="sm"
             variant="outline"
