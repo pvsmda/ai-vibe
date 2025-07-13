@@ -1,9 +1,7 @@
 import { inngest } from "@/inngest/client";
 import { prisma } from "@/lib/db";
-import {
-  protectedProcedure,
-  createTRPCRouter,
-} from "@/trpc/init";
+import { consumeCredits } from "@/lib/usage";
+import { protectedProcedure, createTRPCRouter } from "@/trpc/init";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
@@ -14,13 +12,13 @@ export const messagesRouter = createTRPCRouter({
         projectId: z.string().min(1, { message: "Project id is required" }),
       })
     )
-    .query(async ({ input,ctx }) => {
+    .query(async ({ input, ctx }) => {
       const messages = await prisma.message.findMany({
         where: {
           projectId: input.projectId,
-          project:{
-            userId:ctx.auth.userId
-          }
+          project: {
+            userId: ctx.auth.userId,
+          },
         },
         include: {
           fragment: true,
@@ -41,19 +39,35 @@ export const messagesRouter = createTRPCRouter({
         projectId: z.string().min(1, { message: "Value is required" }),
       })
     )
-    .mutation(async ({ input,ctx }) => {
+    .mutation(async ({ input, ctx }) => {
       const existingProject = await prisma.project.findUnique({
         where: {
           id: input.projectId,
-          userId:ctx.auth.userId
+          userId: ctx.auth.userId,
         },
-      })
+      });
 
-      if(!existingProject){
+      if (!existingProject) {
         throw new TRPCError({
           code: "NOT_FOUND",
           message: "Project not found",
         });
+      }
+
+      try {
+        await consumeCredits();
+      } catch (error) {
+        if (error instanceof Error) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: "Somenthing went wrong",
+          });
+        } else {
+          throw new TRPCError({
+            code: "TOO_MANY_REQUESTS",
+            message: "You have run out of credits",
+          });
+        }
       }
 
       const createdMessage = await prisma.message.create({
