@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 AI Vibe
 
-## Getting Started
+**AI Vibe** é uma plataforma moderna que combina IA com a melhor stack web da atualidade, permitindo criar, visualizar e executar projetos de forma inteligente, escalável e colaborativa.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** Next.js 15 + React 19  
+- **Estilização:** Tailwind CSS v4 + shadcn/ui  
+- **Type Safety Full-stack:** tRPC  
+- **Background Jobs:** Inngest  
+- **Agente Inteligente:** Inngest Agent Toolkit  
+- **Autenticação e Cobrança:** Clerk (Auth + Billing)  
+- **Geração com IA:** Criação de componentes e apps com prompts de IA (via ChatGPT API)  
+- **Pré-visualização ao Vivo:** Compartilhamento de projetos com link único  
+- **Ambientes de Execução:** E2B (cloud sandboxes com execução em tempo real)  
+- **Templating Dinâmico:** Sandboxes com Docker  
+- **Modelos de IA Compatíveis:** OpenAI, Anthropic, Grok  
+- **Banco de Dados:** Prisma + Neon  
+- **Revisão de Código com IA:** CodeRabbit  
+- **Sistema de Créditos:** Gerenciamento de uso com rastreamento embutido  
+- **Dev Experience:** Alternância entre modo preview e explorador de código
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Funcionalidades
 
-## Learn More
+- 🔐 Login seguro com Clerk
+- 🧱 Geração de apps e componentes com linguagem natural
+- 📡 Execução em tempo real de código via sandboxes
+- 📦 Organização de dados com Prisma e Neon
+- 🧪 Alternância entre visualização e código
+- 💳 Sistema de créditos e billing integrado
+- 🤖 Integração completa com APIs de IA
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📬 Contato
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Criado com ❤️ por Paulo Victor Silva  
+🔗 [Portfólio](https://portfolio-next-mu-bay.vercel.app/)
